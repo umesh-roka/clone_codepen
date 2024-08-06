@@ -38,13 +38,22 @@ const {user} = useSelector((state)=>state.userSlice);
           
         <button className=' border-2  hover:animate-rainbow bg-blue-gray-900 rounded-lg px-3 py-2 text-xl'>
           <NavLink  to='/compiler'>Start Coading</NavLink>
-          </button>        
-          <li className="p-2">Your Work</li>
-          <li className="p-2">Activity</li> 
-          <li className="p-2">Assets</li> 
-          <li className="p-2">Challenges</li> 
-          <li className="p-2">Spark</li> 
-          <li className="p-2">CodePen Pro</li> 
+          </button>
+
+
+
+          <NavLink><li className="p-2">Your Work</li>
+          </NavLink>
+          <NavLink><li className="p-2">Activity</li> </NavLink>
+          <NavLink><li className="p-2">Assets</li></NavLink>
+          <NavLink><li className="p-2">Challenges</li></NavLink>
+          <NavLink><li className="p-2">Spark</li></NavLink>
+          <NavLink><li className="p-2">CodePen Pro</li></NavLink>     
+          
+           
+           
+           
+           
 
         </ul>
       </nav>}
