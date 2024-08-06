@@ -10,15 +10,17 @@ import { useParams } from 'react-router';
 const CodeEditor = forwardRef(({ updatetitle, setUpdateTitle }, ref) => {
   const { id } = useParams();
   const { data } = useGetCodeByIdQuery(id);
-  
+
   const [html, setHtml] = useState('');
   const [css, setCss] = useState('');
   const [js, setJs] = useState('');
   const [outputState, setOutputState] = useState({
-    output: '', // Current output
-    recentOutputs: [] // Array of recent outputs
+    output: '',
+    recentOutputs: []
   });
-  const [selectedOutput, setSelectedOutput] = useState(''); // To manage selected output
+  const [selectedOutput, setSelectedOutput] = useState('');
+  const [logs, setLogs] = useState([]);
+  const [isConsoleVisible, setIsConsoleVisible] = useState(false);
   const { user } = useSelector((state) => state.userSlice);
   const [updateCode] = useUpdateCodeMutation();
 
@@ -32,13 +34,19 @@ const CodeEditor = forwardRef(({ updatetitle, setUpdateTitle }, ref) => {
         output: data.data.output,
         recentOutputs: [data.data.output, ...prevState.recentOutputs]
       }));
-      setSelectedOutput(data.data.output); // Set initial selected output
+      setSelectedOutput(data.data.output);
     }
   }, [data]);
 
   useEffect(() => {
-    // Function to generate the combined output
+    const originalConsoleLog = console.log;
+    console.log = (...args) => {
+      setLogs((prevLogs) => [...prevLogs, args.map(arg => JSON.stringify(arg)).join(' ')]);
+      originalConsoleLog(...args);
+    };
+
     const updateOutput = () => {
+      setLogs([]);
       const combinedOutput = `
         <html>
         <head>
@@ -46,20 +54,48 @@ const CodeEditor = forwardRef(({ updatetitle, setUpdateTitle }, ref) => {
         </head>
         <body>
           ${html}
-          <script>${js}</script>
+          <script>
+            (function() {
+              window.console.log = function(...args) {
+                window.parent.postMessage({ type: 'log', data: args }, '*');
+              };
+              try {
+                ${js}
+              } catch (e) {
+                console.log('Error:', e.message);
+              }
+            })();
+          </script>
         </body>
         </html>
       `;
       setOutputState((prevState) => ({
         output: combinedOutput,
-        recentOutputs: [combinedOutput, ...prevState.recentOutputs.slice(0, 4)] // Limit to 5 recent outputs
+        recentOutputs: [combinedOutput, ...prevState.recentOutputs.slice(0, 4)]
       }));
-      setSelectedOutput(combinedOutput); // Update selected output to the latest one
+      setSelectedOutput(combinedOutput);
     };
 
-    // Call updateOutput on initial render and when html, css, or js changes
     updateOutput();
+
+    return () => {
+      console.log = originalConsoleLog;
+    };
   }, [html, css, js]);
+
+  useEffect(() => {
+    const handleConsoleMessages = (event) => {
+      if (event.data.type === 'log') {
+        setLogs((prevLogs) => [...prevLogs, ...event.data.data.map(arg => JSON.stringify(arg))]);
+      }
+    };
+
+    window.addEventListener('message', handleConsoleMessages);
+
+    return () => {
+      window.removeEventListener('message', handleConsoleMessages);
+    };
+  }, []);
 
   const handleUpdate = async () => {
     const codeData = {
@@ -83,10 +119,13 @@ const CodeEditor = forwardRef(({ updatetitle, setUpdateTitle }, ref) => {
     handleUpdate,
   }));
 
+  const toggleConsoleVisibility = () => {
+    setIsConsoleVisible(!isConsoleVisible);
+  };
+
   return (
     <div className="h-screen flex flex-col">
       <SplitPane split="horizontal" defaultSize="50%">
-        {/* Top Pane for Editors */}
         <div className="flex flex-col bg-blue-gray-800 h-full">
           <SplitPane split="vertical" minSize={50}>
             <div className="h-full overflow-auto">
@@ -128,13 +167,28 @@ const CodeEditor = forwardRef(({ updatetitle, setUpdateTitle }, ref) => {
           </SplitPane>
         </div>
 
-        {/* Bottom Pane for Output */}
         <div className="bg-white overflow-hidden border-t-2 border-black h-full">
-          
-        <iframe srcDoc={selectedOutput} width="100%" height="100%" title="Output" />
-         
+          <iframe srcDoc={selectedOutput} width="100%" height="100%" title="Output" />
         </div>
+        
+        {isConsoleVisible && (
+            <div className="overflow-hidden h-full bg-black text-white p-2">
+              <h2>Console</h2>
+              <div>
+                {logs.map((log, index) => (
+                  <div key={index} className="console-log">
+                    {log}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
       </SplitPane>
+      <div className="ml-5 h-[25px] bg-black text-white">
+        <button onClick={toggleConsoleVisibility} className="font-bold">
+          Console
+        </button>
+      </div>
     </div>
   );
 });

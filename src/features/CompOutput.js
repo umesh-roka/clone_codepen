@@ -16,7 +16,7 @@ const CompOutput = () => {
   
   const[removecode] = useRemoveCodeMutation();
   
-  const { data, error, isLoading } = useGetByUserQuery({ token: user.token, page: active });
+  const { data, error, isLoading } = useGetByUserQuery({ token: user.token, page1: active });
   // console.log(data);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const CompOutput = () => {
   }, [active]);
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <div><button className=' text-4xl font-bold mx-[450px] h-[400px] mt-4' onClick={()=>nav('/compiler')}> Add new project</button></div>;
 
 const handleRemove = async (_id)=>{
   try {
@@ -60,8 +60,9 @@ export default CompOutput;
 
 export function CircularPagination({ data, active, setActive }) {
 
-  const total = data.total;
-  const numShow = Math.ceil(total /4);
+  const total = data?.total;
+
+  const numshow = Math.ceil(total /4);
 
   const getItemProps = (index) =>
   ({
@@ -96,7 +97,7 @@ export function CircularPagination({ data, active, setActive }) {
         <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Previous
       </Button>
       <div className="flex items-center gap-2">
-        {[...Array(numShow).keys()].map((c) => {
+        {[...Array(numshow).keys()].map((c) => {
           return <IconButton key={c + 1} {...getItemProps(c + 1)}>{c + 1}</IconButton>;
         })}
 
@@ -106,7 +107,7 @@ export function CircularPagination({ data, active, setActive }) {
         variant="text"
         className="flex items-center gap-2 hover:bg-white  bg-white rounded-full"
         onClick={next}
-        disabled={active === numShow}
+        disabled={active === numshow}
       >
         Next
         <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
