@@ -8,7 +8,6 @@ import { useSaveCodeMutation } from './Api/codeApi';
 
 const Compiler = forwardRef(({ title, setTitle }, ref) => {
 
-
   const [isconsole,setConsole] = useState(false);
 
   const togglecontent =()=>{

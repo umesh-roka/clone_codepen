@@ -11,7 +11,6 @@ import {
   MenuList,
   MenuItem,
   Avatar,
-  IconButton,
   Collapse,
   Input,
 } from "@material-tailwind/react";
@@ -20,7 +19,6 @@ import {
   ChevronDownIcon,
   Cog6ToothIcon,
   PowerIcon,
-  Bars2Icon,
   PencilIcon,
 } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
@@ -164,7 +162,6 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
   const [isNavOpen, setIsNavOpen] = React.useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
-  const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
   const toggleEditing = () => setIsEditing(!isEditing);
 
 
@@ -197,7 +194,7 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
           <Typography
             as="a"
             href="#"
-            className="font-bold text-2xl uppercase"
+            className="font-bold lg:text-2xl  uppercase"
           >
             Codepen Clone
           </Typography>
@@ -242,16 +239,7 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
           )}
         </div>
 
-        <IconButton
-          size="sm"
-          color="blue-gray"
-          variant="text"
-          onClick={toggleIsNavOpen}
-          className="ml-auto mr-2 lg:hidden"
-        >
-          <Bars2Icon className="h-6 w-6" />
-        </IconButton>
-
+       
         {user === null ? <Navlist /> : <div className="flex gap-4">
            {isCompilerPage && <button
                 onClick={handleSave}

@@ -23,9 +23,9 @@ const Allcodes = () => {
   return (
     <div>
      
-      <div className="grid  grid-cols-2 justify-center items-center w-[100%] gap-8 p-4"> 
+      <div className="grid grid-flow-row sm:space-y-3 lg:grid lg:grid-cols-2 lg:justify-center lg:items-center  p-4 w-[300px] lg:w-[100%] lg:gap-8 "> 
         {data?.data?.map(({ output, title, _id }) => (
-          <div key={_id} className="flex flex-col items-center p-4 border border-gray-300 rounded-lg  h-[350px] w-[550px] shadow-md">
+          <div key={_id} className="flex flex-col sm:my-3 lg:items-center p-4 border border-gray-300 rounded-lg w-[300px] lg:h-[350px] lg:w-[550px] shadow-md">
 
             <div className="w-full h-[300px] bg-white">
               <iframe className=''  srcDoc={output} width="100%" height="100%" title={`output-${_id} `} />
@@ -75,7 +75,7 @@ export function CircularPagination({ data, active, setActive }) {
 
 
   return (
-    <div className="flex gap-4 p-5 mx-[420px]">
+    <div className="flex gap-4 p-5 lg:mx-[420px]">
       <Button
         variant="text"
         className="flex items-center gap-2 hover:bg-white  bg-white rounded-full"
@@ -93,7 +93,7 @@ export function CircularPagination({ data, active, setActive }) {
       </div>
       <Button
         variant="text"
-        className="flex items-center gap-2 hover:bg-white  bg-white rounded-full"
+        className=" flex  items-center gap-2 hover:bg-white  bg-white rounded-full"
         onClick={next}
         disabled={active === numShow}
       >

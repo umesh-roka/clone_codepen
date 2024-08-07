@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import Sidebar from '../ui/Sidebar';
 import { Button, Card, CardBody, CardFooter, CardHeader, Typography } from '@material-tailwind/react';
@@ -17,11 +16,11 @@ const NotUserHome = () => {
       <Sidebar expanded={sidebarExpanded} toggleSidebar={toggleSidebar} />
       <div className="flex-1 flex flex-col">
         
-        <main className="flex-1 bg-blue-gray-900 p-4 transition-all">
-        <div className='grid grid-cols-2 text-white mx-[150px] pt-[50px]'>
-      <div className='flex flex-col '>
+        <main className="flex-1 bg-blue-gray-900 lg:p-4  sm: w-screen transition-all">
+        <div className=' felx felx-row lg:grid lg:grid-cols-2 text-white lg:mx-[150px] pt-[50px]'>
+      <div className='flex flex-col   lg:flex lg:flex-col '>
         <div>
-        <h1 className='uppercase font-bold text-5xl pb-5'>The best place to build, test, and discover front-end code.</h1>
+        <h1 className='uppercase font-bold lg:text-5xl pb-5'>The best place to build, test, and discover front-end code.</h1>
         </div>
         <div className=' text-xl pb-5 text-justify'>
         <p>CodePen is a social development environment for front-end designers and developers. Build and deploy a website, show off your work, build test cases to learn and debug, and find inspiration.</p>
@@ -29,14 +28,18 @@ const NotUserHome = () => {
         <Button className='bg-green-300 w-[200px]'>Free Signup</Button>
       </div>
       
-      <div className='bg-gray-500 h-[380px] w-[400px] ml-[100px] space-y-3 '>
+      <div className='bg-gray-500 lg:h-[380px] lg:w-[400px] lg:ml-[100px] space-y-3 '>
         <div className='bg-gray-900 h-[100px] w-[230px] rounded mt-[20px] ml-[150px]' >div1</div>
         <div className='bg-gray-900 h-[100px] w-[230px] rounded ml-[200px]'>div2</div>
         <div className='bg-gray-900 h-[100px] w-[230px] rounded ml-[140px]'>div3</div>
       </div>
       </div>
 
-<div className={` my-12 grid grid-cols-3 ${sidebarExpanded ? ' mx-[100px]' : 'mx-[150px]'}`}>
+
+
+
+
+<div className={` my-12 sm:grid sm:grid-rows-3 lg:grid lg:grid-cols-3  lg:grid-rows-1 ${sidebarExpanded ? ' lg:mx-[100px]' : 'lg:mx-[150px]'}`}>
 <BuildandTest/>
    <LearnadnDisCover/>
    <ShareYourWork/>
@@ -45,19 +48,19 @@ const NotUserHome = () => {
 
 {/* 6boxes */}
 
-      <div className={` text-white ${sidebarExpanded ? ' ' : 'ml-[120px]'}`}>
+      <div className={`  text-white ${sidebarExpanded ? ' ' : 'lg:ml-[120px]'}`}>
        <Allcodes/>
       </div>
 
       {/* below 6boxes */}
 
-<div className='mx-[150px] text-center mt-14 text-white'>
-  <h1 className='text-2xl font-bold pb-4'>A front-end environment made for testing and sharing
+<div className='lg:mx-[150px] text-center mt-14 text-white'>
+  <h1 className='lg:text-2xl font-bold pb-4'>A front-end environment made for testing and sharing
   </h1>
   <p className='text-blue-300'>Explore the Editor</p>
-      <div className='flex mt-5 '>
+      <div className='sm:felx felx-row lg:flex mt-5 '>
 
-        <div className='h-[500px]  text-justify space-y-14 w-[400px]'>
+        <div className='h-[500px]  text-justify space-y-14 lg:w-[400px]'>
        <h1>Support For the Way You Code</h1>
        <h1>Keep Your Pens Private
        </h1>
@@ -70,15 +73,15 @@ const NotUserHome = () => {
        <h1>Collab Mode
        </h1> 
         </div>
-        <div className='ml-11'>
-          <img className='h-[500px]' src='https://cpwebassets.codepen.io/assets/packs/editor-collab-90815f9b83fcbdbd3ef7df4573ed9b57.png' alt=''/>
+        <div className='lg:ml-11'>
+          <img className='h-[500px] sm:w-[300px]' src='https://cpwebassets.codepen.io/assets/packs/editor-collab-90815f9b83fcbdbd3ef7df4573ed9b57.png' alt=''/>
         </div>
       </div>
     </div>
 
 
-    <div className={` my-12 grid   ${sidebarExpanded ? ' mx-[100px] space-x-4' : 'mx-[150px]'}`}>
-    <div className='grid grid-cols-6 text-blue-400 '>
+    <div className={` my-12   ${sidebarExpanded ? ' lg:mx-[100px] lg:space-x-4' : 'lg:mx-[150px]'}`}>
+    <div className='sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-6 text-blue-400 '>
 
       <div className='h-[250px] w-[170px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900'>
         <img height={230} width={130} className='ml-[20px] mt-10' src="https://cdn.iconscout.com/icon/free/png-256/free-react-3521666-2945110.png?f=webp&w=256" alt="" />
@@ -118,15 +121,15 @@ const NotUserHome = () => {
 
 
 {/* two panel */}
-<div className={`${sidebarExpanded ? 'mx-[100px]' : 'mx-[150px] '} pb-10 text-white mt-[100px]`}>
+<div className={`${sidebarExpanded ? 'lg:mx-[100px]' : 'lg:mx-[150px] '} lg:pb-10 text-white mt-[100px]`}>
       {/* panel1 */}
-      <div className=' bg-gray-900 h-[300px] rounded w-full pt-[50px]  flex gap-7'>
+      <div className=' bg-gray-900 lg:h-[300px] rounded w-full sm:pt-[10px]  sm:pb-[30px]  lg:pt-[50px] sm:flex sm:flex-row lg:flex lg:gap-7'>
         <div className='ml-14'>
           <img height={300} width={400} src='https://static4.buysellads.net/uu/7/151317/1719328425-Codepen_Deque_600x400.png' alt=''/>
         </div>
         <div className='mr-9 text-center'>
-        <h1 className='font-bold text-2xl text-justify'>axe DevTools Extension</h1>
-        <p className='w-[800px] text-justify py-5'> Scan your web app with the most trusted accessibility testing tool. Find issues in just minutes with automation and AI-powered tools. Get shareable reports with issue details, severity, info on how to fix, screenshots, and why the issue matters. Build a more accessible web app with axe DevTools.</p>
+        <h1 className='font-bold lg:text-2xl text-justify'>axe DevTools Extension</h1>
+        <p className='lg:w-[800px] text-justify py-5'> Scan your web app with the most trusted accessibility testing tool. Find issues in just minutes with automation and AI-powered tools. Get shareable reports with issue details, severity, info on how to fix, screenshots, and why the issue matters. Build a more accessible web app with axe DevTools.</p>
 
         <button className='bg-green-400 px-2 py-1 rounded float-left'>Get started for free</button>
         </div>
@@ -135,12 +138,12 @@ const NotUserHome = () => {
 
       </div>
       {/* panel2 */}
-      <div className='mt-10 w-full h-[400px]  text-center rounded bg-gray-900'>
-        <h1 className='font-bold text-2xl py-5'>Bring the Whole Team</h1>
-        <p className='mx-[250px]'>Each team and team member gets all the features of a PRO membership. That means the Team can do things like upload Assets, use features like Collab Mode, Professor Mode, Presentation Mode, and Live View, and apply custom CSS to Posts, Profiles, and Embeds.</p>
+      <div className='mt-10 w-full lg:h-[400px]  text-center rounded bg-gray-900'>
+        <h1 className='font-bold lg:text-2xl py-5'>Bring the Whole Team</h1>
+        <p className='lg:mx-[250px]'>Each team and team member gets all the features of a PRO membership. That means the Team can do things like upload Assets, use features like Collab Mode, Professor Mode, Presentation Mode, and Live View, and apply custom CSS to Posts, Profiles, and Embeds.</p>
         <button className='bg-green-400 px-2 py-1 rounded my-5'> Start Team</button>
-        <h1 className='font-bold text-2xl'>Loved by hundreds of teams, including:</h1>
-        <div className={`mt-3 flex ${sidebarExpanded ? 'mx-[100px] gap-8' : 'mx-[100px] gap-10'} `}>
+        <h1 className='font-bold lg:text-2xl'>Loved by hundreds of teams, including:</h1>
+        <div className={`mt-3 sm:grid sm:grid-cols-3 lg:flex ${sidebarExpanded ? 'lg:mx-[100px] lg:gap-8' : 'lg:mx-[100px] lg:gap-10'} `}>
 
           <img height={80} width={40} src='https://cpwebassets.codepen.io/assets/packs/airbnb-cb44d3434e60956b120c2cfd2afa9a23.png' alt=''/>
 
