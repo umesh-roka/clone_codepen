@@ -190,7 +190,7 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
 
 
   return (
-    <Navbar className="bg-gray-900 rounded-none lg:w-[100%] sm:w-[400px] sm:overflow-hidden border-black text-white">
+    <Navbar className="bg-gray-900 rounded-none lg:w-[100%] sm:w-[417px] md:w-[700px] sm:overflow-hidden border-black text-white">
       <div className="relative mx-auto flex items-center justify-between">
         <div className="flex gap-4">
           {!isCodeEditorPage && !isCompilerPage && (
