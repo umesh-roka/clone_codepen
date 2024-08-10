@@ -217,7 +217,7 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
                 <span className="text-xl">{title|| 'Untitled Project'}</span>
               )}
               <PencilIcon
-                className="h-6 w-6 cursor-pointer mr-2 sm:mr-[90px]"
+                className="h-6 w-6 cursor-pointer mr-2 "
                 onClick={toggleEditing}
               />
              
