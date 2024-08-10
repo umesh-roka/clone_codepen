@@ -52,6 +52,7 @@ function ProfileMenu({ user }) {
         break;
       case 'logout':
         dispatch(userLogout());
+        nav('/');
         break;
       default:
     }
@@ -151,10 +152,11 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
  
   const { user } = useSelector((state) => state.userSlice);
 // updatetitle
+
   const [Editing, setEditing] = useState(false);
  
 
-  const togglEditing = () => setEditing(!isEditing);
+  const togglEditing = () => setEditing(!Editing);
 
 
 //settitle
@@ -188,7 +190,7 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
 
 
   return (
-    <Navbar className="bg-gray-900 rounded-none sm:w-[370px] overflow-hidden border-black text-white">
+    <Navbar className="bg-gray-900 rounded-none lg:w-screen sm:w-[370px] overflow-hidden border-black text-white">
       <div className="relative mx-auto flex items-center justify-between">
         <div className="flex gap-4">
           {!isCodeEditorPage && !isCompilerPage && (
