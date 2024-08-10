@@ -23,7 +23,7 @@ const Allcodes = ({sidebarExpanded}) => {
   return (
     <div>
      
-     <div className="grid  sm:grid-cols-1 lg:grid-cols-2 justify-center items-center lg:w-[100%] gap-8 p-4">
+     <div className="grid  sm:grid-cols-1 lg:grid-cols-2 justify-center items-center lg:w-[100%]  gap-8 p-4">
 
         {data?.data?.map(({ output, title, _id }) => (
          <div key={_id} className={`flex flex-col items-center p-4 border border-gray-300 rounded-lg ${sidebarExpanded ? 'sm:w-[230px] ': 'sm:w-[330px]'}  lg:w-[550px]  shadow-md`}>
@@ -44,7 +44,6 @@ const Allcodes = ({sidebarExpanded}) => {
 };
 
 export default Allcodes;
-
 
 
 
@@ -76,14 +75,14 @@ export function CircularPagination({ data, active, setActive }) {
 
 
   return (
-    <div className="flex gap-4 p-5 lg:ml-[450px]">
+    <div className="flex gap-4 p-5 lg:ml-[470px]">
       <Button
         variant="text"
         className="flex items-center gap-2 hover:bg-white  bg-white rounded-full"
         onClick={prev}
         disabled={active === 1}
       >
-        <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> <span className='sm:hidden'>Previous</span>
+        <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> 
       </Button>
       <div className="flex items-center gap-2">
         {[...Array(numShow).keys()].map((c) => {
@@ -98,7 +97,7 @@ export function CircularPagination({ data, active, setActive }) {
         onClick={next}
         disabled={active === numShow}
       >
-        <span className='sm:hidden'>Next</span>
+       
         <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
       </Button>
     </div>
