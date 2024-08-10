@@ -39,7 +39,7 @@ const NotUserHome = () => {
 
 
 
-<div className={` my-12 sm:grid sm:grid-rows-3 lg:grid lg:grid-cols-3  lg:grid-rows-1 ${sidebarExpanded ? ' lg:mx-[100px]' : 'lg:mx-[150px]'}`}>
+<div className={`sm:pl-[10px] my-12 sm:grid sm:grid-rows-3 lg:grid lg:grid-cols-3  lg:grid-rows-1 ${sidebarExpanded ? ' lg:mx-[100px]' : 'lg:mx-[150px]'}`}>
 <BuildandTest sidebarExpanded={sidebarExpanded}/>
    <LearnadnDisCover sidebarExpanded={sidebarExpanded}/>
    <ShareYourWork sidebarExpanded={sidebarExpanded}/>
@@ -54,7 +54,7 @@ const NotUserHome = () => {
 
       {/* below 6boxes */}
 
-<div className='lg:mx-[150px] text-center mt-14 text-white'>
+<div className=' sm:pl-[10px]lg:mx-[150px] text-center mt-14 text-white'>
   <h1 className='lg:text-2xl font-bold pb-4'>A front-end environment made for testing and sharing
   </h1>
   <p className='text-blue-300'>Explore the Editor</p>
@@ -80,7 +80,7 @@ const NotUserHome = () => {
     </div>
 
 
-    <div className={` my-12   ${sidebarExpanded ? ' lg:mx-[100px] lg:space-x-4' : 'lg:mx-[150px]'}`}>
+    <div className={` sm:pl-[10px] my-12   ${sidebarExpanded ? ' lg:mx-[100px] lg:space-x-4' : 'lg:mx-[150px]'}`}>
     <div className='sm:grid  sm:grid-cols-2  lg:grid lg:grid-cols-6 text-blue-400 '>
 
       <div className={`${sidebarExpanded ? 'sm:w-[120px] ':'sm:w-[150px] sm:h-[200px]'}  lg:h-[250px] lg:w-[170px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900 mt-[20px]`}>
