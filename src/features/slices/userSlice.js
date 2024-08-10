@@ -20,3 +20,4 @@ userLogout:(state,action)=>{
 });
 
 export const {addUser,userLogout} = userSlice.actions;
+

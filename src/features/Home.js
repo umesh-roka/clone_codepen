@@ -17,7 +17,7 @@ const Home = () => {
       {user === null ?'':<Sidebar expanded={sidebarExpanded} toggleSidebar={toggleSidebar}  />}
      
       <div>
-      {user === null ? <NotUserHome/>:<UserHome/>}
+      {user === null ? <NotUserHome sidebarExpanded={sidebarExpanded} />:<UserHome sidebarExpanded={sidebarExpanded}/>}
       </div>
     </div>
   )

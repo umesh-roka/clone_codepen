@@ -188,16 +188,20 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
 
 
   return (
-    <Navbar className="bg-gray-900 rounded-none border-black text-white">
+    <Navbar className="bg-gray-900 rounded-none sm:w-[370px] overflow-hidden border-black text-white">
       <div className="relative mx-auto flex items-center justify-between">
         <div className="flex gap-4">
-          <Typography
+          {!isCodeEditorPage && !isCompilerPage && (
+            <Typography
             as="a"
             href="#"
-            className="font-bold lg:text-2xl  uppercase"
+            className="font-bold lg:text-2xl sm:text-sm  uppercase"
           >
             Codepen Clone
           </Typography>
+          )}
+          
+
           {isCompilerPage && (
             <div className="flex items-center gap-3">
               {isEditing ? (
@@ -211,7 +215,7 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
                 <span className="text-xl">{title|| 'Untitled Project'}</span>
               )}
               <PencilIcon
-                className="h-6 w-6 cursor-pointer mr-2"
+                className="h-6 w-6 cursor-pointer mr-2 sm:mr-[90px]"
                 onClick={toggleEditing}
               />
              
@@ -223,7 +227,7 @@ const Header = ({ CodeEditorRef,compilerRef, title, setTitle,updatetitle,setUpda
             <div className="flex items-center gap-3">
               {Editing ? (
                 <Input
-                  className="text-white"
+                  className="text-white "
                   variant="standard"
                   value={updatetitle}
                   onChange={(e) => setUpdateTitle(e.target.value)}

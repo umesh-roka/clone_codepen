@@ -14,3 +14,6 @@ export const getUserFromLocal = ()=>{
 export const celarFormLocal =()=>{
   localStorage.clear();
 }
+
+
+

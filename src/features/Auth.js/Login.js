@@ -50,16 +50,16 @@ const Login=()=>{
 <div className="bg-gray-800 flex">
 <Sidebar expanded={sidebarExpanded} toggleSidebar={toggleSidebar} />
 <div>
-    <div className="grid grid-cols-2 text-white pt-[150px] ">
+    <div className="lg:grid lg:grid-cols-2 text-white pt-[150px] ">
       <div>
       
       </div>
-     <Card color="transparent" shadow={false}>
+     <Card className="sm:ml-8 sm:w-[250px]" color="transparent" shadow={false}>
      
-      <form onSubmit={handleSubmit} className=" mb-16 w-80 max-w-screen-lg text-white sm:w-96">
+      <form onSubmit={handleSubmit} className=" mb-16 lg:w-80 lg:max-w-screen-lg text-white">
         
         <div className="mb-1 flex flex-col gap-6">
-        <Typography variant="h6"  className="-mb-3">
+        <Typography variant="h6"  className=" mb-3">
             Your Email
           </Typography>
           <Input 
@@ -68,6 +68,7 @@ const Login=()=>{
           value={values.email}
           type="email"
            color="white" 
+           className="  "
           
             />
           <Typography variant="h6" color="white"  className="-mb-3">
@@ -81,13 +82,16 @@ const Login=()=>{
         
          color="white"
           type='password'
+          className=""
            
           />
         </div>
-        <Button type='submit'  className="mt-6" fullWidth>
+        <div className="flex flex-col">
+        <Button type='submit'  className="mt-6 sm:w-[200px] " >
           Login
         </Button>
-       <button className="ml-[130px] text-blue-400 my-8">Forgot Password?</button>
+       <button className=" sm:pr-[100px] text-blue-400 my-8">Forgot Password?</button>
+       </div>
       </form>
     </Card>
     </div>

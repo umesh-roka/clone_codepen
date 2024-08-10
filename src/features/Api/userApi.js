@@ -2,6 +2,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import { userUrl } from '../../Constant/constant';
 
 
+
 export const userApi = createApi({
   reducerPath:'userApi',
   baseQuery:fetchBaseQuery({
@@ -34,3 +35,5 @@ export const userApi = createApi({
 });
 
 export const { useUserSignupMutation, useUserLoginMutation } = userApi;
+
+

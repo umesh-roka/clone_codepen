@@ -40,14 +40,14 @@ const Signup = () => {
     <div className='flex bg-gray-800'>
        <Sidebar expanded={sidebarExpanded} toggleSidebar={toggleSidebar} />
 
-    <div className='flex mx-[250px] py-10 '>
+    <div className='flex sm:ml-5 lg:mx-[250px] py-10 '>
      
 
       <div color="transparent" shadow='false'>
-      <Typography variant="h4" color="white">
+      <Typography className='sm:text-xl ' variant="h4" color="white">
         Enter your detail to Signup
       </Typography>
-      <form onSubmit={handleSubmit} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+      <form onSubmit={handleSubmit} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-[250px]">
         <div className="mb-1 flex flex-col gap-6">
     
         <Typography variant="h6" color="white" className="-mb-3">
@@ -58,6 +58,8 @@ const Signup = () => {
           onChange={handleChange}
           value={values.username}
            color='white'
+           className=""
+
   />
           <Typography variant="h6" color="white" className="-mb-3">
             Your Email
@@ -67,8 +69,10 @@ const Signup = () => {
           onChange={handleChange}
           value={values.email}
            color='white'
+           className=""
+
   />
-          <Typography variant="h6" color="white" className="-mb-3">
+          <Typography variant="h6" color="white" className=" mb-3">
             Password
           </Typography>
           <Input
@@ -77,10 +81,12 @@ const Signup = () => {
           value={values.password}
           type='password'
            color='white'
+           className=""
+
 
           />
         </div>
-        <Button type='submit' className="mt-6" fullWidth>
+        <Button type='submit' className="mt-6 sm:w-[200px] " fullWidth>
           Signup
         </Button>
         <Typography color="white" className="mt-4 text-center font-normal">

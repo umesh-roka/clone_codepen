@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className='bg-black text-white pt-[60px] h-[200px]'>
-    <div className='mx-[150px]'>
-    <div className='flex gap-3 '>
+    <div className='bg-black text-white pt-[60px] lg:h-[200px]'>
+    <div className='sm:ml-4 lg:mx-[150px] sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-1'>
+    <div className='sm:flex sm:flex-col lg:flex lg:flex-row lg:gap-3 '>
     <h1 className='font-bold'>CodePen</h1>
     <NavLink>About</NavLink>
     <NavLink>Blog</NavLink>
@@ -17,7 +17,7 @@ const Footer = () => {
     </div>
   
   
-    <div className='flex gap-3 '>
+    <div className=' sm:flex sm:flex-col lg:flex lg:flex-row lg:gap-3 '>
     <h1 className='font-bold'>For</h1>
     <NavLink>Teams</NavLink>
     <NavLink>Education</NavLink>
@@ -26,7 +26,7 @@ const Footer = () => {
     <NavLink>Hosting</NavLink>
     </div>
   
-    <div className='flex gap-3 '>
+    <div className='sm:flex sm:flex-col lg:flex lg:flex-row lg:gap-3 '>
     <h1 className='font-bold'>Social</h1>
     <NavLink>YouTube</NavLink>
     <NavLink>Instagram</NavLink>
@@ -34,7 +34,7 @@ const Footer = () => {
     <NavLink>Facebook</NavLink>
     </div>
   
-    <div className='flex gap-3 '>
+    <div className='sm:flex sm:flex-col lg:flex lg:flex-row lg:gap-3 '>
     <h1 className='font-bold'>Community</h1>
     <NavLink>Spark</NavLink>
     <NavLink>Challenges</NavLink>

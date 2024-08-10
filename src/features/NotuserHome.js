@@ -16,11 +16,11 @@ const NotUserHome = () => {
       <Sidebar expanded={sidebarExpanded} toggleSidebar={toggleSidebar} />
       <div className="flex-1 flex flex-col">
         
-        <main className="flex-1 bg-blue-gray-900 lg:p-4  sm: w-screen transition-all">
-        <div className=' felx felx-row lg:grid lg:grid-cols-2 text-white lg:mx-[150px] pt-[50px]'>
-      <div className='flex flex-col   lg:flex lg:flex-col '>
+        <main className="flex-1 bg-blue-gray-900 lg:p-4 transition-all">
+        <div className=' felx felx-row lg:grid sm:pl-3 lg:grid-cols-2 text-white lg:mx-[150px] pt-[50px]'>
+      <div className={`flex flex-col  ${sidebarExpanded? 'sm:w-[230px]': 'sm:w-[300px]'} lg:w-[500px] lg:flex lg:flex-col `}>
         <div>
-        <h1 className='uppercase font-bold lg:text-5xl pb-5'>The best place to build, test, and discover front-end code.</h1>
+        <h1 className='uppercase font-bold  lg:text-5xl pb-5'>The best place to build, test, and discover front-end code.</h1>
         </div>
         <div className=' text-xl pb-5 text-justify'>
         <p>CodePen is a social development environment for front-end designers and developers. Build and deploy a website, show off your work, build test cases to learn and debug, and find inspiration.</p>
@@ -28,10 +28,10 @@ const NotUserHome = () => {
         <Button className='bg-green-300 w-[200px]'>Free Signup</Button>
       </div>
       
-      <div className='bg-gray-500 lg:h-[380px] lg:w-[400px] lg:ml-[100px] space-y-3 '>
-        <div className='bg-gray-900 h-[100px] w-[230px] rounded mt-[20px] ml-[150px]' >div1</div>
-        <div className='bg-gray-900 h-[100px] w-[230px] rounded ml-[200px]'>div2</div>
-        <div className='bg-gray-900 h-[100px] w-[230px] rounded ml-[140px]'>div3</div>
+      <div className={` bg-gray-500 ${sidebarExpanded ? 'sm:w-[230px]':'sm:w-[300px]'} lg:h-[380px] lg:w-[400px] lg:ml-[100px] space-y-3 `}>
+        <div className={`bg-gray-900 h-[100px] ${sidebarExpanded ? 'sm:w-[150px] ' : 'sm:w-[230px] '} lg:w-[230px] rounded mt-[20px] sm:ml-[50px] lg:ml-[150px]`} >div1</div>
+        <div className={`bg-gray-900 h-[100px] ${sidebarExpanded ? 'sm:w-[150px]' : 'sm:w-[230px]'} lg:w-[230px] rounded sm:ml-[90px] lg:ml-[200px]`}>div2</div>
+        <div className={`bg-gray-900 h-[100px] ${sidebarExpanded ? 'sm:w-[150px]' : 'sm:w-[230px]'} lg:w-[230px] rounded sm:ml-[50px] lg:ml-[140px]`}>div3</div>
       </div>
       </div>
 
@@ -40,16 +40,16 @@ const NotUserHome = () => {
 
 
 <div className={` my-12 sm:grid sm:grid-rows-3 lg:grid lg:grid-cols-3  lg:grid-rows-1 ${sidebarExpanded ? ' lg:mx-[100px]' : 'lg:mx-[150px]'}`}>
-<BuildandTest/>
-   <LearnadnDisCover/>
-   <ShareYourWork/>
+<BuildandTest sidebarExpanded={sidebarExpanded}/>
+   <LearnadnDisCover sidebarExpanded={sidebarExpanded}/>
+   <ShareYourWork sidebarExpanded={sidebarExpanded}/>
 </div>
     
 
 {/* 6boxes */}
 
-      <div className={`  text-white ${sidebarExpanded ? ' ' : 'lg:ml-[120px]'}`}>
-       <Allcodes/>
+      <div className={`  text-white ${sidebarExpanded ? ' ' : ''}`}>
+       <Allcodes sidebarExpanded={sidebarExpanded}/>
       </div>
 
       {/* below 6boxes */}
@@ -74,46 +74,49 @@ const NotUserHome = () => {
        </h1> 
         </div>
         <div className='lg:ml-11'>
-          <img className='h-[500px] sm:w-[300px]' src='https://cpwebassets.codepen.io/assets/packs/editor-collab-90815f9b83fcbdbd3ef7df4573ed9b57.png' alt=''/>
+          <img className='h-[500px] ' src='https://cpwebassets.codepen.io/assets/packs/editor-collab-90815f9b83fcbdbd3ef7df4573ed9b57.png' alt=''/>
         </div>
       </div>
     </div>
 
 
     <div className={` my-12   ${sidebarExpanded ? ' lg:mx-[100px] lg:space-x-4' : 'lg:mx-[150px]'}`}>
-    <div className='sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-6 text-blue-400 '>
+    <div className='sm:grid  sm:grid-cols-2  lg:grid lg:grid-cols-6 text-blue-400 '>
 
-      <div className='h-[250px] w-[170px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900'>
-        <img height={230} width={130} className='ml-[20px] mt-10' src="https://cdn.iconscout.com/icon/free/png-256/free-react-3521666-2945110.png?f=webp&w=256" alt="" />
+      <div className={`${sidebarExpanded ? 'sm:w-[120px] ':'sm:w-[150px] sm:h-[200px]'}  lg:h-[250px] lg:w-[170px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900 mt-[20px]`}>
+        <img height={230} className=' sm:w-[90px] lg:w-[130px] ml-[20px] mt-10' src="https://cdn.iconscout.com/icon/free/png-256/free-react-3521666-2945110.png?f=webp&w=256" alt="" />
         <h1 className=' text-center text-2xl pt-5 '>React</h1>
       </div>
       
-      <div className='h-[250px] w-[170px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900'>
-      <img height={230} width={130} className='ml-[20px] mt-10' src="https://static-00.iconduck.com/assets.00/vue-icon-512x439-f6q4zral.png" alt="" />
+      <div className={`${sidebarExpanded ? 'sm:w-[120px] ':'sm:w-[150px] sm:h-[200px]'} lg:h-[250px] lg:w-[170px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900 mt-[20px]`}>
+      <img height={230} className='ml-[20px]  sm:w-[90px] lg:w-[130px] mt-10' src="https://static-00.iconduck.com/assets.00/vue-icon-512x439-f6q4zral.png" alt="" />
       <h1 className=' text-center text-2xl pt-[40px]'>Vue</h1>
       </div>
 
-      <div className='h-[250px] w-[170px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900'>
-      <img height={230} width={130} className='ml-[20px] mt-10' src="https://static-00.iconduck.com/assets.00/tailwind-css-icon-2048x1229-u8dzt4uh.png" alt="" />
+
+
+
+      <div className={`${sidebarExpanded ? 'sm:w-[120px] ':'sm:w-[150px] sm:h-[200px]'} lg:h-[250px] lg:w-[170px] sm:mt-[20px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900`}>
+      <img height={230} className=' sm:w-[90px] lg:w-[130px] ml-[20px] mt-10' src="https://static-00.iconduck.com/assets.00/tailwind-css-icon-2048x1229-u8dzt4uh.png" alt="" />
       <h1 className=' text-center text-2xl pt-[75px]'>TailWind</h1>
     
       </div>
 
-      <div className='h-[250px] w-[170px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900'><img height={230} width={130} className='ml-[20px] mt-10' src="https://cdn.iconscout.com/icon/free/png-256/free-sass-13-1175092.png?f=webp" alt="" />
+      <div className={`${sidebarExpanded ? 'sm:w-[120px] ':'sm:w-[150px] sm:h-[200px]'} lg:h-[250px] lg:w-[170px]  sm:mt-[20px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900`}><img height={230}  className='ml-[20px] mt-10 sm:w-[90px] lg:w-[130px]' src="https://cdn.iconscout.com/icon/free/png-256/free-sass-13-1175092.png?f=webp" alt="" />
       <h1 className=' text-center text-2xl pt-5'>Sass</h1>
       </div>
 
-      <div className='h-[250px] w-[170px] hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900'>
-      <img height={230} width={130} className='ml-[20px] mt-[25px]' src="https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg" alt="" />
+      <div className={`${sidebarExpanded ? 'sm:w-[120px] ':'sm:w-[150px] sm:h-[200px]'} lg:h-[250px] lg:w-[170px]  sm:mt-[20px]  hover:text-white transition duration-300 ease-in transform hover:scale-110  rounded-lg bg-gray-900`}>
+      <img height={230} className='ml-[20px] mt-[25px] sm:w-[90px] lg:w-[130px]' src="https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg" alt="" />
       <h1 className=' text-center text-2xl pt-[15px]'>Gsap</h1>
       </div>
 
-      <div className='h-250px flex ml-5 flex-col text-white'>
+      {/* <div className='h-250px flex ml-5 flex-col text-white'>
      <h1 className='text-2xl pb-3'>Get Started Quicker</h1>
      <p className='mb-4 w-[200px]'>Get inspiration from Pens using frameworks, libraries, and design patterns. Then, start your own with premade templates.
 </p>
 <button className='bg-none text-left text-blue-300'>Explore Topics</button>
-    </div>
+    </div> */}
       </div>
       
 
@@ -143,7 +146,7 @@ const NotUserHome = () => {
         <p className='lg:mx-[250px]'>Each team and team member gets all the features of a PRO membership. That means the Team can do things like upload Assets, use features like Collab Mode, Professor Mode, Presentation Mode, and Live View, and apply custom CSS to Posts, Profiles, and Embeds.</p>
         <button className='bg-green-400 px-2 py-1 rounded my-5'> Start Team</button>
         <h1 className='font-bold lg:text-2xl'>Loved by hundreds of teams, including:</h1>
-        <div className={`mt-3 sm:grid sm:grid-cols-3 lg:flex ${sidebarExpanded ? 'lg:mx-[100px] lg:gap-8' : 'lg:mx-[100px] lg:gap-10'} `}>
+        <div className={`mt-3 sm:grid sm:grid-cols-2 sm:ml-[15px] sm:space-y-4 lg:flex ${sidebarExpanded ? 'lg:mx-[100px] lg:gap-8' : 'lg:mx-[100px] lg:gap-10'} `}>
 
           <img height={80} width={40} src='https://cpwebassets.codepen.io/assets/packs/airbnb-cb44d3434e60956b120c2cfd2afa9a23.png' alt=''/>
 
@@ -177,9 +180,9 @@ const NotUserHome = () => {
 export default NotUserHome;
 
 
-export function BuildandTest() {
+export function BuildandTest({sidebarExpanded}) {
   return (
-    <Card className="mt-6 h-[310px] bg-gray-900 text-white w-[340px]">
+    <Card className={`mt-6 h-[310px] bg-gray-900 text-white ${sidebarExpanded ? 'sm:w-[250px]':'sm:w-[340px]'} lg:w-[340px]`}>
       <CardHeader color="blue-gray" className="h-[150px] bg-black w-[100px]">
         <img height={80} width={60} className='ml-4'
           src="https://cpwebassets.codepen.io/assets/packs/icon-build-0f21c66ed03bfb36c597636d27ca621e.svg"
@@ -202,9 +205,10 @@ export function BuildandTest() {
   );
 }
 
-export function LearnadnDisCover() {
+
+export function LearnadnDisCover({sidebarExpanded}) {
   return (
-    <Card className="mt-6 h-[310px] bg-gray-900 text-white w-[340px]">
+    <Card className={`mt-6 h-[310px] bg-gray-900 text-white ${sidebarExpanded ? 'sm:w-[250px]':'sm:w-[340px]'} lg:w-[340px]`}>
     <CardHeader color="blue-gray" className="h-[200px] bg-black w-[100px]">
         <img height={80} width={60} className='ml-4'
           src="https://cpwebassets.codepen.io/assets/packs/icon-learn-b1311620e99cea826f259aa2f7750940.svg"
@@ -228,9 +232,9 @@ export function LearnadnDisCover() {
 }
 
 
-export function ShareYourWork() {
+export function ShareYourWork({sidebarExpanded}) {
   return (
-    <Card className="mt-6 h-[310px] bg-gray-900 text-white w-[340px]">
+    <Card className={`mt-6 h-[310px] bg-gray-900 text-white ${sidebarExpanded ? 'sm:w-[250px]':'sm:w-[340px]'} lg:w-[340px]`} >
    <CardHeader color="blue-gray" className="h-[150px] bg-black w-[100px]">
         <img height={60} width={40} className='ml-4'
           src="https://cpwebassets.codepen.io/assets/packs/icon-share-910c683bbac21bf41fcf9aab64ebc957.svg"
